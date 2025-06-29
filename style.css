@@ -1,0 +1,262 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--text);
+}
+
+:root {
+--color-bg: #f4f1e6;
+    --green: #b5d89e;
+    --yellow: #f4e370;
+    --gray: #d5ccc7;
+    --blue: #0374a3;
+    --text: #232323;
+  --bubble: white;
+  --border: #cbc8c7;
+}
+
+@keyframes appear {
+  0% { transform: scale(1.2) }
+  100% { transform: scale(1) }
+}
+
+.popup {
+  pointer-events: none;
+  display: inline-block;
+  padding: 5px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+  transform: translateY(10vh);
+  transition: .5s;
+  opacity: 0;
+  z-index: 5;
+}
+
+
+.copied {
+    background-color: var(--green);
+  transform: translateY(0);
+   opacity: 1;
+}
+
+.sharable {
+  background-color: var(--bubble)!important;
+  animation: appear .5s;
+  cursor: auto!important;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+header {
+ text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.keyboard, .board {
+  padding-top: 20px;
+}
+.app {
+/*   display: grid; */
+  min-height: 100vh;
+  grid-template-rows: auto auto 1fr auto;
+  padding: 1rem;
+  justify-content: center;
+  text-align: center;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5rem;
+}
+.round {
+  display: flex;
+  gap: 0.5rem;
+}
+.letter {
+  font-size: 2rem;
+  background-color: var(--bubble);
+  border: 1px solid var(--border);
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+.letter--hint-correct {
+  background: var(--green);
+  animation: appear .5s;
+}
+.letter--hint-wrong {
+  background: var(--gray);
+/*   animation: appear .3s; */
+}
+.letter--hint-close {
+  background: var(--yellow);
+  animation: appear .5s;
+}
+.feedback {
+  padding: 10px;
+  white-space: pre-wrap;
+  pointer-events: none;
+}
+
+.gojo {
+  background-color: var(--green);
+    display: inline-block;
+    margin: 10px;
+    border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  animation: appear .5s;
+}
+
+#copyme {
+  display: none;
+}
+
+.keyboard {
+display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100%;
+    margin: auto;
+}
+.keyboard__row {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+.key {
+font: inherit;
+    padding: 0;
+    display: block;
+    width: 2rem;
+    height: 2.25rem;
+    background-color: var(--bubble);
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1rem;
+}
+.key:hover {
+  box-shadow: 0 0 0 0.1rem var(--blue);
+  cursor: pointer;
+}
+
+footer p {
+  margin: auto;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+footer {
+max-width: 350px;
+    text-align: center;
+    font-size: 13px;
+/*     border-top: 1px solid var(--border); */
+    padding: 10px;
+    margin: auto;
+    margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.key--pretty {
+  width: 3rem;
+  font-size: 0.7rem;
+  margin: 0 0.5rem;
+}
+
+.key--hint-correct {
+  background:  var(--green);
+    animation: appear .5s;
+}
+.key--hint-wrong {
+  background: var(--gray);
+/*   animation: appear .3s; */
+}
+.key--hint-close {
+  background: var(--yellow);
+  animation: appear .5s;
+}
+
+
+@keyframes shake {
+  8% {
+    transform: translateX(6%);
+  }
+  16% {
+    transform: translateX(-6%);
+  }
+  24% {
+    transform: translateX(5%);
+  }
+  32% {
+    transform: translateX(-5%);
+  }
+  40% {
+    transform: translateX(4%);
+  }
+  48% {
+    transform: translateX(-4%);
+  }
+  56% {
+    transform: translateX(3%);
+  }
+  64% {
+    transform: translateX(-3%);
+  }
+  72% {
+    transform: translateX(2%);
+  }
+  80% {
+    transform: translateX(-2%);
+  }
+  88% {
+    transform: translateX(1%);
+  }
+  96% {
+    transform: translateX(-1%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+:root {
+    --color-bg: #090909;
+    --green: #375f1d;
+    --yellow: #a27d05;
+    --gray: #424040;
+    --blue: #0393ce;
+    --text: #f6f6f6;
+    --bubble: #131313;
+  --border: #3a3a3a;
+}
+}
